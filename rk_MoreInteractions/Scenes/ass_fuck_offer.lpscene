@@ -1,0 +1,63 @@
+WHAT: all, -sleep, -nap, -go_to_the_bathroom
+WHERE: all, -home, -prison
+WHEN: 20 - 5 
+WHO: none
+OTHER: Random(0, 100) < attractiveness && !Player.isProstitute() && !isWithCompanion()
+
+    SceneStart()
+        Stranger1 = generatePersonTemporary()
+        Stranger1.dress()
+        Stranger1.show()
+        pimpoffer1 = random(150, 250)
+        pimpoffer1_loc = pimpoffer1.convertToLocalCurrency()
+    
+        "I was going about my business when suddenly a strange guy approach me ..."
+        Stranger1(Excited):: "I give you <pimpoffer1_loc> to fuck your nice little ass?"
+    
+        Player(Curious)::"You must have mistaken me for a prostitute ..."
+        Stranger1(Excited):: "Who cares, I just want to pump your little ass?"
+        "What do you say ?"
+        0:: "Not for sale"
+        1:: "Why not !"
+        2:: "I'll do it for free !"
+        3:: "Refuse"
+    
+        If 0
+            Player(Disgusted):: "Sorry, I'm not that type of <Player.guy_or_girl>."
+            perversion -= 1
+            
+        Elseif 1
+    
+            "I can't believe I accept ... but having sex with strangers it' too much for me to refuse ... I just wish he doesn't have any STDs... "
+            money += pimpoffer1
+            perversion += 1
+        
+            Loc = findNearbyBuilding(hotel)
+            moveTo(Loc)
+            setBackground(home)
+        
+            "Soon, we were back in his hotel room to conduct our little 'transaction'."
+            Player.strip()
+            Stranger1.strip()
+            Sex(Stranger1, Player)
+    
+        Elseif 2
+    
+            "I can't believe I accept ... but having sex with strangers it' too much for me to refuse ... I just wish he doesn't have any STDs... "
+        
+            Loc = findNearbyBuilding(hotel)
+            moveTo(Loc)
+            setBackground(home)
+        
+            "Soon, we were back in his hotel room to conduct our little 'transaction'."
+            Player.strip()
+            Stranger1.strip()
+            Sex(Stranger1, Player)
+    
+        Elseif 3
+    
+            Player(Angry):: "What the fuck! That's so inappropriate! Damn perv!"
+            
+        Endif
+    SceneEnd()
+    timeout(200, ass_fuck_offer)
