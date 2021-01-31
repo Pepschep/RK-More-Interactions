@@ -4,8 +4,9 @@
 <br>
 <h3>rk_MoreInteractions :</h3> 
 <p>Add options to do silly things around the city.</p> 
-<p>Groping</p> 
-<p>Contain 1 scene.</p>
+<p>Groping, offer from stranger</p> 
+<p>Contain 1 action scene.</p>
+<p>Contain 1 popup scene.</p>
 <p>More scenes will be added soon.</p>
 <br>
 <hr>
