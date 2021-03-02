@@ -2,7 +2,9 @@
 <p>Module for the game LifePlay</p>
 <p>https://github.com/vinfamy/LifePlay</p>
 <br>
-<h3>rk_MoreInteractions :</h3> 
+<h3>rk_MoreInteractions :</h3>
+<p>Version: 1.0.1</p>
+<br>
 <p>Add options to do silly things around the city.</p> 
 <p>Groping, offer from stranger</p> 
 <p>Contain 1 action scene.</p>
