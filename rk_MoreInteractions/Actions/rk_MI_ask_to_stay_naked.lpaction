@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: rk_MI_ask_to_stay_naked
+ACTION_NAME: Ask to stay naked
+WHERE: interaction
+WHEN: 
+MINUTES: 
+TIMEOUT_MINUTES: 
+ALSO_TIMEOUT: 
+EFFECTS: 
+CONDITIONS: 
+MOVE_FIRST: false
+SCENE_ALWAYS: rk_MI_ask_to_stay_naked
+ANIMATION: 
+WHO: Actor = getTarget(); If !Actor.isTemporary() && WHERE == home && !Actor.isCreature() && !Actor.isNaked()
