@@ -1,5 +1,5 @@
 ACTION_UNIQUEID: rk_MI_ask_to_redress
-ACTION_NAME: Ask to redress
+ACTION_NAME: Ask to dress
 WHERE: interaction
 WHEN: 
 MINUTES: 

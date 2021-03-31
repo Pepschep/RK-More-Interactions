@@ -1,5 +1,5 @@
 ACTION_UNIQUEID: rk_MI_ask_to_stay_naked
-ACTION_NAME: Ask to stay naked
+ACTION_NAME: Ask to strip
 WHERE: interaction
 WHEN: 
 MINUTES: 

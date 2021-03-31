@@ -1,0 +1,28 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    
+        If CurrentCompanion.isDating() || Random(20, 75) < CurrentCompanion:attractiontoplayer + CurrentCompanion:perversion
+            "I grab <CurrentCompanion.name> by the hips and start kissing <CurrentCompanion.him_or_her> and take the opportunity to caressing <CurrentCompanion.his_or_her> <CurrentCompanion.cock_or_pussy>..."
+            AnimatePair(Player, CurrentCompanion, Kissing)
+            Player(Kiss):: "..."
+            AnimatePair(Player, CurrentCompanion, Kissing)
+            CurrentCompanion(Kiss):: "..."
+            CurrentCompanion:attractiontoplayer += Random(0, 2)
+            CurrentCompanion:arousal += Random(0, 2)
+            
+        Else
+            
+            CurrentCompanion(Lazy)::"Just a small kiss..."
+            AnimatePair(Player, CurrentCompanion, Kissing)
+            Player(Kiss):: "..."
+            CurrentCompanion:attractiontoplayer += Random(0, 1)
+            
+        EndIf
+            
+            
+    SceneEnd()

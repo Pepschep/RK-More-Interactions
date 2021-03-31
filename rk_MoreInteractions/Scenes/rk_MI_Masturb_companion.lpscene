@@ -1,0 +1,37 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    
+        Player(Flirty):: "Hey Babe! Would you like a <CurrentCompanion.dick_or_pussy> massage?"
+        If CurrentCompanion.isFemale() && CurrentCompanion.isDating() || CurrentCompanion.isFemale() && CurrentCompanion:perversion > 50 || CurrentCompanion.isFemale() && CurrentCompanion:arousal > 15
+            CurrentCompanion(Excited):: "Uh, of course I want, what's that question..."
+            CurrentCompanion.strip()
+            Player.strip()
+            Filter(Fingering)
+            sex(Player, CurrentCompanion)
+            CurrentCompanion:attractiontoplayer += Random(0, 3)
+            CurrentCompanion:arousal += Random(0, 2)
+            
+        ElseIf CurrentCompanion.isMale() && CurrentCompanion.isDating() || CurrentCompanion.isMale() && CurrentCompanion:perversion > 50 || CurrentCompanion.isMale() && CurrentCompanion:arousal > 15
+        
+            CurrentCompanion(Excited):: "Uh, of course I want, what's that question..."
+            CurrentCompanion.strip()
+            Player.strip()
+            Filter(Handjob)
+            sex(Player, CurrentCompanion)
+            CurrentCompanion:attractiontoplayer += Random(0, 3)
+            CurrentCompanion:arousal += Random(0, 2)
+            
+        Else
+            
+            CurrentCompanion(Embarassed)::"Nah! Not now babe!"
+            CurrentCompanion:attractiontoplayer += Random(0, 1)
+            
+        EndIf
+            
+            
+    SceneEnd()
