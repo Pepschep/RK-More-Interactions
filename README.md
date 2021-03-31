@@ -3,11 +3,11 @@
 <p>https://github.com/vinfamy/LifePlay</p>
 <br>
 <h3>rk_MoreInteractions :</h3>
-<p>Version: 1.0.2</p>
+<p>Version: 1.0.3</p>
 <br>
 <p>Add options to do silly things around the city.</p> 
-<p>Groping, offer from stranger, ...</p> 
-<p>Contain 4 interaction scenes.</p>
+<p>Groping, offer from stranger, kiss companion,...</p> 
+<p>Contain 6 interaction scenes.</p>
 <p>Contain 4 interaction actions.</p>
 <p>Contain 1 popup scene.</p>
 <p>More actions/scenes will be added soon.</p>
