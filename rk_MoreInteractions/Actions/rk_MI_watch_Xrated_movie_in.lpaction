@@ -1,11 +1,11 @@
-ACTION_UNIQUEID: rk_MI_watch_Xrated_movieIn
+ACTION_UNIQUEID: rk_MI_watch_Xrated_movie_in
 ACTION_NAME: Watch a porn movie
-WHERE: home, prison, fraternity
+WHERE: home, fraternity, prison
 WHEN: 0 - 24
 MINUTES: 90 - 150
 TIMEOUT_MINUTES: 0
 ALSO_TIMEOUT: 
-EFFECTS: stock_movie -1 (START), mood +3 (END), perversion +1 (END), arousal +5 (END), mood -3 (INTERRUPTED)
+EFFECTS: stock_movie -1 (START), mood +3 (END), perversion +1 (END), arousal +5 (END)
 CONDITIONS: stock_movie >= 0.8 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:
