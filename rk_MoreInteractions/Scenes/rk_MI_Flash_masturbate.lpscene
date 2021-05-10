@@ -33,7 +33,7 @@ SceneStart()
             Player.show()
             Sex(Player, Actor)
         
-        Elseif
+        Elseif 1
         
             "So I continue to masturbate in front of <Actor.him_or_her> with more passion!"
             Actor.dress()
@@ -42,7 +42,11 @@ SceneStart()
             Player.show()
             filter(solo)
             Sex(Player)
+        Else
         
+            Actor(Shocked):: "What the fuck was that! Keep running Forest...! Next time I'll call the cops!"
+            Actor:attractiontoplayer -= 3
+
         Endif
     Elseif Actor.hadSex() || Random(40, 100) < Actor:attractiontoplayer + perversion
         "<Actor.name> didn't say a word but smiled at me. <Actor.He_or_She> definitely enjoyed the show."

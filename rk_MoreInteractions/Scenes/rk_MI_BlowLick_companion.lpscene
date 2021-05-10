@@ -25,6 +25,26 @@ OTHER: none
             sex(Player, CurrentCompanion)
             CurrentCompanion:attractiontoplayer += Random(0, 3)
             CurrentCompanion:arousal += Random(0, 2)
+        
+        ElseIf CurrentCompanion.isDating() && CurrentCompanion:arousal > 25 && CurrentCompanion:perversion > 50 || CurrentCompanion:arousal > 25 && CurrentCompanion:attractiontoplayer > 50 && CurrentCompanion:perversion > 50
+        
+            CurrentCompanion(Flirty):: "Babe, I'm too horny! Let's fuck instead?"
+            "What do I say?"
+            0::"Sure"
+            1::"Later"
+            
+            If 0
+            
+                "We strip righ away and started having sex right here!"
+                CurrentCompanion.strip()
+                CurrentCompanion.show()
+                Player.strip()
+                CurrentCompanion.strip()
+                Player.show()
+                CurrentCompanion.show()
+                Sex(Player, CurrentCompanion)
+            
+            EndIf
             
         Else
             
