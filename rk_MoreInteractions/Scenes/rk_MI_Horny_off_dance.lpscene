@@ -33,7 +33,7 @@ OTHER: Random(0, 1000) < dance && Player:arousal > 25 && Player:intoxication > 1
                     "No way. I literally just met the <Actor.guy_or_girl>."
                 Endif
                 
-            ElseIf Random(0, 100) < dance && Actor:perversion > 50 && Actor:arousal > 25
+            ElseIf Actor:perversion > 50 && Actor:arousal > 25
             
                 "My effort paid off and the crowd cheered on as I became the center of attention, showing off my best moves on the dance floor."
                 dance += Random(0, 0.5)
