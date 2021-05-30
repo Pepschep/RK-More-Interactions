@@ -1,0 +1,98 @@
+WHAT: all
+WHERE: prison
+WHEN: 0-24
+WHO: none
+OTHER: Random(0, 100) > energy + mood
+
+    SceneStart()
+    
+        firstTGuard = Player.getActorVar(rk_MI_firstTGuard)
+        
+        If firstTGuard <= 0
+        
+            SceneStart()
+                Guard = generatePersonTemporary()
+                Guard.dressGuard()
+                Guard.show(3)
+                Actor = generatePerson()
+                Actor.dressPrisoner()
+                Actor.show(2)
+           
+                "A guard accompanied by a prisoner approaches my cell."
+                Guard(Happy)::"Hey <Player.name>, I brought you a new friend!"
+                Guard(Happy)::"We're running out of space in the prison, so you'll have to share between you."
+                Player(Serene)::"Fine, no choice anyway!"
+                passTime(0.25, 0.5)
+                Player.setActorVar(rk_MI_firstTGuard, 1)
+            SceneEnd()
+           
+        Else
+        
+            Actor.dressPrisoner()
+            Actor.show(2)
+        
+        EndIf
+        
+        If Actor:perversion > 60 && Actor:arousal > 25
+            "<Actor.namee> look at me..."
+            If Actor:muscle > 50 && Actor:masochist < masochist
+            
+                Actor(Happy)::"I'm horny, let's fuck, come here my little <Player.puppy_or_bitch>!"
+                0:: "Resist"
+                1:: "Accept your fate"
+                
+                If 0 && Actor:martial < martial
+                    Actor(Pain):: "Ah!"
+                    Player(Angry):: "That should teach you!"
+                    masochist -= 2
+                    
+                    If perversion > 60 && arousal > 25
+                    
+                        "What should do with <Actor.him_or_her>"
+                        0:: "Rape <Actor.him_or_her>"
+                        1:: "No"
+                        
+                        If 0
+                        
+                            "In prison, rape means power. Let's show <Actor.him_or_her> who's the boss!"
+                            "I take <Actor.him_or_her> by surprise, I grab <Actor.him_or_her> <Actor.handsome_or_beautiful> <Actor.dick_or_pussy> from behind."
+                            karma -= 20
+                            "<Actor.He_or_She> is too weak to resist, I undresses <Actor.him_or_her> and pulls down <Actor.his_or_her> panties and starts literally raping <Actor.him_or_her>."
+                            Actor(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
+                            Player(Happy):: "Shut up <Player.puppy_or_bitch>! No one will come for your help, you're my toy now!"
+                            "My cries for help went unheard in the dark prison cell and I had no choice but endure it all."
+                            Filter(Aggressive)
+                            TalkNonConsensual()
+                            SexNoAffair(Player, Actor)
+
+                        Else
+                        
+                            "Nah, I don't want to spend the rest of my life rotting away in this prison. Not worth it."
+                            
+                        Endif
+                    
+                    EndIf
+                
+                Else
+                
+                    "<Actor.He_or_She> is too strong and <Actor.he_or_she> will got me in no time."
+                    "<Actor.He_or_She> undresses me and pulls my panties down and starts literally raping me."
+                    Player(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
+                    Actor(Happy):: "Shut up <Player.puppy_or_bitch>! No one will come for your help, you're my toy now!"
+                    "My cries for help went unheard in the dark prison cell and I had no choice but endure it all."
+                    Filter(Aggressive)
+                    TalkNonConsensual()
+                    SexNoAffair(Actor, Player)
+                    masochist += 2
+                    mood += 5
+                
+                EndIf
+            
+            Endif
+            
+        
+            
+        Endif
+
+    SceneEnd()
+    timeout(200, rk_MI_New_Inmate)
