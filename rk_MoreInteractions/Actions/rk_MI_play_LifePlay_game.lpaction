@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: rk_MI_play_LifePlay_game
+ACTION_NAME: Play LifePlay game
+WHERE: PC
+WHEN: 0 - 24
+MINUTES: 40 - 120
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: intelligence +0.2 (END), mood +3 (DURATION), arousal +3 (DURATION)
+CONDITIONS:
+MOVE_FIRST: false
+SCENE_ALWAYS:
+ANIMATION: browse
