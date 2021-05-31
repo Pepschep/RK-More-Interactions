@@ -10,4 +10,4 @@ CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS: rk_MI_play_LifePlay_together
 ANIMATION: browse
-WHO: Actor = getTarget(); If !Actor.isTemporary() && [WHERE == home || WHERE == fraternity] && !Actor.isCreature()   
+WHO: Actor = getTarget(); If !Actor.isTemporary() && [WHERE == home || WHERE == fraternity || WHERE == prison] && !Actor.isCreature()   

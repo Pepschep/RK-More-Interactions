@@ -10,4 +10,4 @@ CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
 ANIMATION:
-WHO: Actor = getTarget(); If !Actor.isTemporary() && WHERE == prison && !Actor.isCreature()   
+WHO: Actor = getTarget(); If !Actor.isTemporary() && WHERE == prison && !Actor.isCreature() 

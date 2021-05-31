@@ -2,77 +2,105 @@ WHAT: all
 WHERE: prison
 WHEN: 0-24
 WHO: none
-OTHER: Random(0, 100) > energy + mood
+OTHER: Random(0, 100) > fitness
 
     SceneStart()
     
         firstTGuard = Player.getActorVar(rk_MI_firstTGuard)
+        MyInmate = Player.getActorVar(rk_MI_MyInmate)
+        Prisoner = Actor.getActorVar(tag_Prisoner)
+        Guard = generatePersonTemporary()
+        Actor = generatePerson()
+        Player.show()
+        Actor.hide()
+        Guard.hide()
         
-        If firstTGuard <= 0
-        
+        If firstTGuard <= 0 && MyInmate <= 0
+
             SceneStart()
-                Guard = generatePersonTemporary()
-                Guard.dressGuard()
-                Guard.show(3)
+
+                
+
                 Actor = generatePerson()
+                Guard.dressGuard()
+                Guard.show()
+
                 Actor.dressPrisoner()
-                Actor.show(2)
-           
+                Actor.show()
+
+                MyInmate = Actor.getID()
+                Player.setActorVar(rk_MI_MyInmate, MyInmate)
+                Actor.setActorVar(tag_Prisoner, 1)
+            
                 "A guard accompanied by a prisoner approaches my cell."
-                Guard(Happy)::"Hey <Player.name>, I brought you a new friend!"
+                If Player.isNaked()
+                    Guard(Happy)::"<Player.name>, can you dress yourself, you have a visit!"
+                    Player.dress()
+                EndIf
+                Guard(Happy)::"Hey <Player.name>, I brought you a new friend, <Actor.his_or_her> name is <Actor.name>!"
                 Guard(Happy)::"We're running out of space in the prison, so you'll have to share between you."
                 Player(Serene)::"Fine, no choice anyway!"
-                passTime(0.25, 0.5)
+                
                 Player.setActorVar(rk_MI_firstTGuard, 1)
+                Actor.makePermanent()
+                Guard.hide()
+                Actor.addToPeopleHere()
+                passTime(0.25, 0.5)
+                
             SceneEnd()
            
-        Else
-        
+        ElseIf Actor:perversion > 60 && Actor:arousal > 25
+            
+            Actor = getSpecific(MyInmate)
+            Actor.show()
             Actor.dressPrisoner()
-            Actor.show(2)
-        
-        EndIf
-        
-        If Actor:perversion > 60 && Actor:arousal > 25
-            "<Actor.namee> look at me..."
+            "<Actor.name> look at me..."
             If Actor:muscle > 50 && Actor:masochist < masochist
             
                 Actor(Happy)::"I'm horny, let's fuck, come here my little <Player.puppy_or_bitch>!"
                 0:: "Resist"
                 1:: "Accept your fate"
                 
-                If 0 && Actor:martial < martial
-                    Actor(Pain):: "Ah!"
-                    Player(Angry):: "That should teach you!"
-                    masochist -= 2
-                    
-                    If perversion > 60 && arousal > 25
-                    
-                        "What should do with <Actor.him_or_her>"
-                        0:: "Rape <Actor.him_or_her>"
-                        1:: "No"
-                        
-                        If 0
-                        
-                            "In prison, rape means power. Let's show <Actor.him_or_her> who's the boss!"
-                            "I take <Actor.him_or_her> by surprise, I grab <Actor.him_or_her> <Actor.handsome_or_beautiful> <Actor.dick_or_pussy> from behind."
-                            karma -= 20
-                            "<Actor.He_or_She> is too weak to resist, I undresses <Actor.him_or_her> and pulls down <Actor.his_or_her> panties and starts literally raping <Actor.him_or_her>."
-                            Actor(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
-                            Player(Happy):: "Shut up <Player.puppy_or_bitch>! No one will come for your help, you're my toy now!"
-                            "My cries for help went unheard in the dark prison cell and I had no choice but endure it all."
-                            Filter(Aggressive)
-                            TalkNonConsensual()
-                            SexNoAffair(Player, Actor)
-
-                        Else
-                        
-                            "Nah, I don't want to spend the rest of my life rotting away in this prison. Not worth it."
-                            
-                        Endif
-                    
-                    EndIf
+                If 0 
                 
+                    If Actor:martial < martial
+                        Actor(Pain):: "Ah!"
+                        Player(Angry):: "That should teach you!"
+                        masochist -= 2
+                    
+                        If perversion > 60 && arousal > 25
+                    
+                            "What should do with <Actor.him_or_her>"
+                            0:: "Rape <Actor.him_or_her>"
+                            1:: "No"
+                        
+                            If 0
+                        
+                                "In prison, rape means power. Let's show <Actor.him_or_her> who's the boss!"
+                                "I take <Actor.him_or_her> by surprise, I grab <Actor.him_or_her> <Actor.handsome_or_beautiful> <Actor.dick_or_pussy> from behind."
+                                karma -= 20
+                                "<Actor.He_or_She> is too weak to resist, I undresses <Actor.him_or_her> and pulls down <Actor.his_or_her> panties and starts literally raping <Actor.him_or_her>."
+                                Actor(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
+                                Player(Happy):: "Shut up <Player.puppy_or_bitch>! No one will come for your help, you're my toy now!"
+                                "My cries for help went unheard in the dark prison cell and I had no choice but endure it all."
+                                Filter(Aggressive)
+                                TalkNonConsensual()
+                                SexNoAffair(Player, Actor)
+                                passTime(0.5, 1.5)
+                                Actor:masochist += 2
+                                Actor:mood -= 5
+
+                            Else
+                        
+                                "Nah, I don't want to spend the rest of my life rotting away in this prison. Not worth it."
+                                Actor:rapportwithplayer -= 0.5
+                                Actor:attractiontoplayer -= 0.5
+                            
+                            Endif
+                    
+                        EndIf
+                    EndIf
+                    
                 Else
                 
                     "<Actor.He_or_She> is too strong and <Actor.he_or_she> will got me in no time."
@@ -83,16 +111,107 @@ OTHER: Random(0, 100) > energy + mood
                     Filter(Aggressive)
                     TalkNonConsensual()
                     SexNoAffair(Actor, Player)
+                    passTime(0.25, 0.5)
                     masochist += 2
-                    mood += 5
+                    mood -= 5
                 
+                EndIf
+                
+            ElseIf Player.isNaked()
+            
+                Actor(Happy)::"Do you want to fuck, the guards are not around?"
+                0::"Yes"
+                1::"No"
+            
+                If 0
+            
+                    interpersonal += 1
+                    "We stripped and fucked without any remorse...!"
+                    SexNoAffair(Actor, Player)
+                    arousal += 2
+                    mood += 5
+                    Actor:rapportwithplayer += 2
+                    Actor:attractiontoplayer += 1.5
+                    passTime(0.5, 1)
+                
+                Else
+            
+                    "No it's ok!"
+            
+                EndIf
+            
+            Else
+                
+                Actor.show()
+                Actor.dressPrisoner()
+                Actor(Happy)::"Do you want to smoke a joint, the guards are not around?"
+                0::"Yes"
+                1::"No"
+            
+                If 0
+            
+                    interpersonal += 1
+                    "We smoked a big joint together and we tell us some personal stories...!"
+                    Player.animate(smoke)
+                    Actor.animate(smoke)
+                    mood += 5
+                    Actor:rapportwithplayer += 2
+                    Actor:attractiontoplayer += 2
+                    intoxication += 15
+                    intoxication += 15
+                    passTime(0.25, 0.5)
+                    Player.animate()
+                    Actor.animate()
+                
+                Else
+            
+                    "No it's ok!"
+            
                 EndIf
             
             Endif
-            
         
+        ElseIf Actor:rapportwithplayer > 25
+        
+            Actor = getSpecific(MyInmate)
+            Actor.show()
+            Actor.dressPrisoner()
+            Actor(Happy)::"Do you want to play chess?"
+            0::"Yes"
+            1::"No"
             
+            If 0
+            
+                interpersonal += 1
+                "We played chess and we talked together for few hours!"
+                Actor:rapportwithplayer += 1
+                Actor:attractiontoplayer += 0.5
+                passTime(1, 3)
+                
+            Else
+            
+                "No thanks, maybe later!"
+            
+            EndIf
+        
+        Else
+            
+            Actor = getSpecific(MyInmate)
+            Guard = generatePersonTemporary()
+            Guard.dressGuard()
+            Guard.show()
+            Actor.show()
+            Actor.dressPrisoner()
+            "A guard approache my cell and say..."
+            Guard(Happy)::"<Actor.name>, come with me, I'll take you somewhere else..."
+            Actor(Curious)::"Uh! Ok..."
+            Guard.hide()
+            Actor.hide()
+            Player.setActorVar(rk_MI_firstTGuard, 0)
+            Player.setActorVar(rk_MI_MyInmate, 0)
+            Actor.DeletePerson()
+
         Endif
 
     SceneEnd()
-    timeout(200, rk_MI_New_Inmate)
+    timeout(150, rk_MI_New_Inmate)
