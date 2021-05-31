@@ -22,15 +22,18 @@ OTHER: none
 
             Actor(Angry):: "What! If you think I will strip myself in front of you, you're crazy!"
             Actor:attractiontoplayer -= 5
+            "Damn, he wants to fight...."
         
             If Actor:martial < martial
+                
                 Actor(Pain):: "Ah!"
+                "I managed to calm him down, he's on the ground, he's unconscious ..."
                 Player(Angry):: "That should teach you!"
                 masochist -= 2
                     
                 If perversion > 60 && arousal > 25
                     
-                    "What should I do with <Actor.him_or_her>"
+                    "Now that <Actor.he_or_she>'s under control, do I take this opportunity to rape <Actor.him_or_her>? What should I do with <Actor.him_or_her>?"
                     0:: "Rape <Actor.him_or_her>"
                     1:: "No"
                         
@@ -39,7 +42,7 @@ OTHER: none
                         "In prison, you need to show to your inmate, who is the boss in the box. Let's show <Actor.him_or_her> who's the boss!"
                         "I take <Actor.him_or_her> by surprise, I grab <Actor.him_or_her> <Actor.handsome_or_beautiful> <Actor.dick_or_pussy> from behind."
                         karma -= 20
-                        "<Actor.He_or_She> is too weak to resist, I undresses <Actor.him_or_her> and pulls down <Actor.his_or_her> panties and starts literally raping <Actor.him_or_her>."
+                        "<Actor.He_or_She>'s too weak to resist, I undresses <Actor.him_or_her> and pulls down <Actor.his_or_her> panties and starts literally raping <Actor.him_or_her>."
                         Actor(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
                         Player(Happy):: "Shut up cry baby! No one will come for your help, you're my fucktoy now!"
                         "<Actor.His_or_Her> cries for help went unheard in the dark prison cell and <Actor.he_or_she> had no choice but endure it all."

@@ -58,6 +58,7 @@ SceneStart()
         
         If Actor:martial < martial
             Actor(Pain):: "Ah!"
+            "I managed to calm him down, he's on the ground, he's unconscious ..."
             Player(Angry):: "That should teach you!"
             masochist -= 2
                     
