@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: rk_MI_Kiss_inmate_prison
 ACTION_NAME: Kiss inmate
-WHERE: prison
+WHERE: interaction
 WHEN: 
 MINUTES: 
 TIMEOUT_MINUTES: 
