@@ -63,7 +63,7 @@ SceneStart()
                     
             If perversion > 60 && arousal > 25
                     
-                "What should do with <Actor.him_or_her>"
+                "What should I do with <Actor.him_or_her>"
                 0:: "Rape <Actor.him_or_her>"
                 1:: "No"
                         
@@ -75,7 +75,7 @@ SceneStart()
                     "<Actor.He_or_She> is too weak to resist, I undresses <Actor.him_or_her> and pulls down <Actor.his_or_her> panties and starts literally raping <Actor.him_or_her>."
                     Actor(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
                     Player(Happy):: "Shut up <Player.puppy_or_bitch>! No one will come for your help, you're my toy now!"
-                    "My cries for help went unheard in the dark prison cell and I had no choice but endure it all."
+                    "<Actor.His_or_Her> cries for help went unheard in the dark prison cell and <Actor.he_or_she> had no choice but endure it all."
                     Filter(Aggressive)
                     TalkNonConsensual()
                     SexNoAffair(Player, Actor)
@@ -88,7 +88,7 @@ SceneStart()
                     "Nah, I don't want to spend the rest of my life rotting away in this prison. Not worth it."
                     Actor:rapportwithplayer -= 0.5
                     Actor:attractiontoplayer -= 0.5
-                            
+
                 Endif
                     
             EndIf

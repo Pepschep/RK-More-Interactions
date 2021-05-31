@@ -142,7 +142,10 @@ OTHER: none
             Else
             
                 "But I don't think it was exciting enough for <CurrentCompanion.name> to make <CurrentCompanion.him_or_her> want to fuck."
-            
+                CurrentCompanion:attractiontoplayer += 1
+                CurrentCompanion:arousal += 1
+                CurrentCompanion:perversion += 1
+
             EndIf
         
         Else
@@ -178,7 +181,10 @@ OTHER: none
             Else
             
                 "But I don't think it was exciting enough for <CurrentCompanion.name> to make <CurrentCompanion.him_or_her> want to fuck."
-            
+                CurrentCompanion:attractiontoplayer += 1
+                CurrentCompanion:arousal += 1
+                CurrentCompanion:perversion += 1
+
             EndIf
         
         

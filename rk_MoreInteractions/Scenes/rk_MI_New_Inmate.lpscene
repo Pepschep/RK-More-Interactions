@@ -8,6 +8,7 @@ OTHER: Random(0, 100) > fitness
     
         firstTGuard = Player.getActorVar(rk_MI_firstTGuard)
         MyInmate = Player.getActorVar(rk_MI_MyInmate)
+        InmateCounterT = Player.getActorVar(InmateCounterT)
         Prisoner = Actor.getActorVar(tag_Prisoner)
         Guard = generatePersonTemporary()
         Actor = generatePerson()
@@ -18,8 +19,6 @@ OTHER: Random(0, 100) > fitness
         If firstTGuard <= 0 && MyInmate <= 0
 
             SceneStart()
-
-                
 
                 Actor = generatePerson()
                 Guard.dressGuard()
@@ -38,8 +37,9 @@ OTHER: Random(0, 100) > fitness
                     Player.dress()
                 EndIf
                 Guard(Happy)::"Hey <Player.name>, I brought you a new friend, <Actor.his_or_her> name is <Actor.name>!"
+                Player(Curious)::"Ok??"
                 Guard(Happy)::"We're running out of space in the prison, so you'll have to share between you."
-                Player(Serene)::"Fine, no choice anyway!"
+                Player(Serene)::"Fine, I have no choice anyway!"
                 
                 Player.setActorVar(rk_MI_firstTGuard, 1)
                 Actor.makePermanent()
@@ -48,9 +48,27 @@ OTHER: Random(0, 100) > fitness
                 passTime(0.25, 0.5)
                 
             SceneEnd()
-           
+
+        ElseIf InmateCounterT > 10
+            
+            Actor = getSpecific(MyInmate)
+            Guard = generatePersonTemporary()
+            Guard.dressGuard()
+            Guard.show()
+            Actor.show()
+            Actor.dressPrisoner()
+            "A guard approache my cell and say..."
+            Guard(Happy)::"<Actor.name>, come with me, I'll take you somewhere else..."
+            Actor(Curious)::"Uh! Ok..."
+            Guard.hide()
+            Actor.hide()
+            Player.setActorVar(rk_MI_firstTGuard, 0)
+            Player.setActorVar(rk_MI_MyInmate, 0)
+            Actor.DeletePerson()
+
         ElseIf Actor:perversion > 60 && Actor:arousal > 25
             
+            Player.modifyActorVar(InmateCounterT, 1)
             Actor = getSpecific(MyInmate)
             Actor.show()
             Actor.dressPrisoner()
@@ -119,6 +137,7 @@ OTHER: Random(0, 100) > fitness
                 
             ElseIf Player.isNaked()
             
+                Player.modifyActorVar(InmateCounterT, 1)
                 Actor(Happy)::"Do you want to fuck, the guards are not around?"
                 0::"Yes"
                 1::"No"
@@ -142,6 +161,7 @@ OTHER: Random(0, 100) > fitness
             
             Else
                 
+                Player.modifyActorVar(InmateCounterT, 1)
                 Actor.show()
                 Actor.dressPrisoner()
                 Actor(Happy)::"Do you want to smoke a joint, the guards are not around?"
@@ -173,6 +193,7 @@ OTHER: Random(0, 100) > fitness
         
         ElseIf Actor:rapportwithplayer > 25
         
+            Player.modifyActorVar(InmateCounterT, 1)
             Actor = getSpecific(MyInmate)
             Actor.show()
             Actor.dressPrisoner()
@@ -193,23 +214,19 @@ OTHER: Random(0, 100) > fitness
                 "No thanks, maybe later!"
             
             EndIf
-        
+
         Else
+
+            Player.modifyActorVar(InmateCounterT, 1)
+            Random
+                "We talked with each other about life and other things!"
+                "We fantasize about a way to escape form here..."
+                "We shared some stories together..."
+            EndRandom
+            Actor:rapportwithplayer += 1
+            Actor:attractiontoplayer += 0.5
+            passTime(0.25, 1)
             
-            Actor = getSpecific(MyInmate)
-            Guard = generatePersonTemporary()
-            Guard.dressGuard()
-            Guard.show()
-            Actor.show()
-            Actor.dressPrisoner()
-            "A guard approache my cell and say..."
-            Guard(Happy)::"<Actor.name>, come with me, I'll take you somewhere else..."
-            Actor(Curious)::"Uh! Ok..."
-            Guard.hide()
-            Actor.hide()
-            Player.setActorVar(rk_MI_firstTGuard, 0)
-            Player.setActorVar(rk_MI_MyInmate, 0)
-            Actor.DeletePerson()
 
         Endif
 

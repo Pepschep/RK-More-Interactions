@@ -10,4 +10,4 @@ CONDITIONS:
 MOVE_FIRST: false
 SCENE_ALWAYS: rk_MI_ask_to_redress
 ANIMATION: 
-WHO: Actor = getTarget(); If !Actor.isTemporary() && !Actor.isCreature() && Actor.isNaked()
+WHO: Actor = getTarget(); If !Actor.isTemporary() && WHERE != prison && !Actor.isCreature() && Actor.isNaked()

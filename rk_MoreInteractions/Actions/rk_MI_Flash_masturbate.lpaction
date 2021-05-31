@@ -10,4 +10,4 @@ CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS: rk_MI_Flash_masturbate
 ANIMATION: masturbate
-WHO: Actor = getTarget(); If !Actor.isCreature()
+WHO: Actor = getTarget(); If !Actor.isCreature() && WHERE != prison
