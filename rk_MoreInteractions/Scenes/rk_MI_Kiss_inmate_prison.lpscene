@@ -7,7 +7,15 @@ OTHER: none
 SceneStart()
     
         BadChanceKissInma = Player.getActorVar(BadChanceKissInma)
+        
+        If BadChanceKissInma > 30
+        
+           Player.setActorVar(BadChanceKissInma, 0)
+        
+        EndIf
+        
         If Actor.isInterestedIn(Player) && [Random(20, 75) < Actor:attractiontoplayer + Actor:perversion]
+        
             "I grab <Actor.name> by the hips and start kissing <Actor.him_or_her> and take the opportunity to caressing <Actor.his_or_her> <Actor.cock_or_pussy>..."
             AnimatePair(Player, Actor, Kissing)
             Player(Kiss):: "..."
