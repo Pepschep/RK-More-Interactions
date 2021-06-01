@@ -74,8 +74,10 @@ SceneStart()
                     "I take <Actor.him_or_her> by surprise, I grab <Actor.him_or_her> <Actor.handsome_or_beautiful> <Actor.dick_or_pussy> from behind."
                     karma -= 20
                     "<Actor.He_or_She> is too weak to resist, I undresses <Actor.him_or_her> and pulls down <Actor.his_or_her> panties and starts literally raping <Actor.him_or_her>."
+                    Actor.strip()
                     Actor(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
                     Player(Happy):: "Shut up <Player.puppy_or_bitch>! No one will come for your help, you're my toy now!"
+                    Player.strip()
                     "<Actor.His_or_Her> cries for help went unheard in the dark prison cell and <Actor.he_or_she> had no choice but endure it all."
                     Filter(Aggressive)
                     TalkNonConsensual()
@@ -96,10 +98,12 @@ SceneStart()
             
         Else
         
-            "<Actor.He_or_She> is too strong and <Actor.he_or_she> will got me in no time."
+            "<Actor.He_or_She> is too strong and <Actor.he_or_she> got me in no time."
             "<Actor.He_or_She> undresses me and pulls my panties down and starts literally raping me."
+            Player.strip()
             Player(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
-            Actor(Happy):: "Shut up <Player.puppy_or_bitch>! No one will come for your help, you're my toy now!"
+            Actor(Happy):: "Shut up <Player.puppy_or_bitch>! No one will come for your help, you're my fucktoy now!"
+            Actor.strip()
             "My cries for help went unheard in the dark prison cell and I had no choice but endure it all."
             Filter(Aggressive)
             TalkNonConsensual()

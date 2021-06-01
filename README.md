@@ -3,13 +3,36 @@
 <p>https://github.com/vinfamy/LifePlay</p>
 <br>
 <h3>rk_MoreInteractions :</h3>
-<p>Version: 1.0.3</p>
+<p>Version: 1.0.6</p>
 <br>
 <p>Add options to do silly things around the city.</p> 
 <p>Groping, offer from stranger, kiss companion,...</p> 
-<p>Contain 6 interaction scenes.</p>
-<p>Contain 4 interaction actions.</p>
+<p>Contain 16 scenes.</p>
 <p>Contain 1 popup scene.</p>
+<br>
+<p>Actions you can do:</p>
+<ul><li>Groping</li>
+<li>Ask companion to dress</li>
+<li>Ask companion to undress</li>
+<li>Kiss companion</li>
+<li>Flash to people and ...</li>
+<li>Propose awkward things to companion</li>
+<li>Play LifePlay</li>
+<li>Play LifePlay together</li>
+<li>Watch Porn movie home/cinema - solo/together</li>
+<li>Watch Porn tube solo/together</li></ul>
+<br>
+<p><strong>In prison</strong></p>
+<ul><li>Groom in prison</li>
+<li>Watch Porn Tube in prison</li>
+<li>Play chess in prison with inmate</li>
+<li>Take a nap in prison</li>
+<li>Watch porn movie in prison</li>
+<li>Draw in prison</li>
+<li>Ask inmate to strip</li>
+<li>Strip naked/Change clothes in prison</li>
+<li>Flash to inmate</li>
+<li>Kiss inmate</li></ul>
 <p>More actions/scenes will be added soon.</p>
 <br>
 <hr>
@@ -43,6 +66,7 @@
 <br>
 <h3>How to contribute</h3>
 <ul>
+<li>Need infos/tutorials for my mods: <a href="https://raiderknight-mods.fandom.com/wiki/RaiderKnight_Mods_Wiki">RaiderKnight Wiki</a></li>
 <li>Supporting me on <a href="https://www.patreon.com/raiderknight">Patreon</a></li>
 <li>Sending your ideas or feedback: Here on Github or on <a href="https://discord.gg/d3U9E2wb4Y">Discord</a></li>
 <li>Adding more content to the module.</li>

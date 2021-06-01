@@ -88,7 +88,7 @@ OTHER: Random(0, 100) > fitness
                     
                         If perversion > 60 && arousal > 25
                     
-                            "What should do with <Actor.him_or_her>"
+                            "What should I do with <Actor.him_or_her>"
                             0:: "Rape <Actor.him_or_her>"
                             1:: "No"
                         
@@ -98,9 +98,11 @@ OTHER: Random(0, 100) > fitness
                                 "I take <Actor.him_or_her> by surprise, I grab <Actor.him_or_her> <Actor.handsome_or_beautiful> <Actor.dick_or_pussy> from behind."
                                 karma -= 20
                                 "<Actor.He_or_She> is too weak to resist, I undresses <Actor.him_or_her> and pulls down <Actor.his_or_her> panties and starts literally raping <Actor.him_or_her>."
+                                Actor.strip()
                                 Actor(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
                                 Player(Happy):: "Shut up <Player.puppy_or_bitch>! No one will come for your help, you're my toy now!"
-                                "My cries for help went unheard in the dark prison cell and I had no choice but endure it all."
+                                Player.strip()
+                                "<Actor.Him_or_Her> cries for help went unheard in the dark prison cell and I had no choice but endure it all."
                                 Filter(Aggressive)
                                 TalkNonConsensual()
                                 SexNoAffair(Player, Actor)
@@ -121,10 +123,12 @@ OTHER: Random(0, 100) > fitness
                     
                 Else
                 
-                    "<Actor.He_or_She> is too strong and <Actor.he_or_she> will got me in no time."
+                    "<Actor.He_or_She> is too strong and <Actor.he_or_she> got me in no time."
                     "<Actor.He_or_She> undresses me and pulls my panties down and starts literally raping me."
+                    Player.strip()
                     Player(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
-                    Actor(Happy):: "Shut up <Player.puppy_or_bitch>! No one will come for your help, you're my toy now!"
+                    Actor(Happy):: "Shut up ! That's not gonna hurt, you're my toy now!"
+                    Actor.strip()
                     "My cries for help went unheard in the dark prison cell and I had no choice but endure it all."
                     Filter(Aggressive)
                     TalkNonConsensual()
@@ -155,7 +159,7 @@ OTHER: Random(0, 100) > fitness
                 
                 Else
             
-                    "No it's ok!"
+                    Player(Serene)::"No it's ok!"
             
                 EndIf
             
@@ -185,7 +189,7 @@ OTHER: Random(0, 100) > fitness
                 
                 Else
             
-                    "No it's ok!"
+                    Player(Serene)::"No it's ok!"
             
                 EndIf
             
@@ -211,13 +215,18 @@ OTHER: Random(0, 100) > fitness
                 
             Else
             
-                "No thanks, maybe later!"
+                Player(Serene)::"No thanks, maybe later!"
             
             EndIf
 
         Else
 
+            Player.show()
+            Actor.show()
+            Player.animate(socialize)
+            Actor.animate(socialize)
             Player.modifyActorVar(InmateCounterT, 1)
+            
             Random
                 "We talked with each other about life and other things!"
                 "We fantasize about a way to escape form here..."
@@ -226,7 +235,8 @@ OTHER: Random(0, 100) > fitness
             Actor:rapportwithplayer += 1
             Actor:attractiontoplayer += 0.5
             passTime(0.25, 1)
-            
+            Player.animate()
+            Actor.animate()
 
         Endif
 

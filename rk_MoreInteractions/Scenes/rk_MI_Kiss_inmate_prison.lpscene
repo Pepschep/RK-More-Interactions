@@ -8,7 +8,7 @@ SceneStart()
     
         BadChanceKissInma = Player.getActorVar(BadChanceKissInma)
         
-        If BadChanceKissInma > 30
+        If BadChanceKissInma > 30 || Actor:attractiontoplayer > 25 || Actor:rapportwithplayer > 25
         
            Player.setActorVar(BadChanceKissInma, 0)
         
@@ -63,7 +63,7 @@ SceneStart()
             Actor(Angry)::"You're trying to die or what, don't do that again my friend or you will regret it!"
             Player.modifyActorVar(BadChanceKissInma, 1)
             
-            If BadChanceKissInma < 3
+            If BadChanceKissInma > 1 && BadChanceKissInma < 3
             
                 Actor(Angry)::"What, you did it again! You really wanna have my fist on your face"
                 Actor(Angry)::"Kiss my fist, you motherfucker!"
@@ -95,10 +95,12 @@ SceneStart()
                 
                 If Actor.isInterestedIn(Player) && energy > 10 && Actor:perversion > 50 && Actor:arousal > 25
                 
-                    "<Actor.He_or_She> is too strong and <Actor.he_or_she> will got me in no time."
+                    "<Actor.He_or_She> is too strong and <Actor.he_or_she> got me in no time."
                     "<Actor.He_or_She> undresses me and pulls my panties down and starts literally raping me."
+                    Player.strip()
                     Player(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
-                    Actor(Happy):: "Shut up <Player.puppy_or_bitch>! No one will come for your help, you're my toy now!"
+                    Actor(Happy):: "Shut up <Player.puppy_or_slut>! No one will come for you, you're my bitch now!"
+                    Actor.strip()
                     "My cries for help went unheard in the dark prison cell and I had no choice but endure it all."
                     Filter(Aggressive)
                     TalkNonConsensual()
