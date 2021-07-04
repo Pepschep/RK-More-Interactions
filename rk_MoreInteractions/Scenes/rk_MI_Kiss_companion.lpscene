@@ -45,6 +45,7 @@ SceneStart()
             CurrentCompanion(Lazy)::"Just a small kiss..."
             AnimatePair(Player, CurrentCompanion, Kissing)
             Player(Kiss):: "..."
+            CurrentCompanion(Kiss):: "..."
             CurrentCompanion:attractiontoplayer += Random(0, 1)
             
         EndIf

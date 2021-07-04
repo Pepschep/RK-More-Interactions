@@ -5,6 +5,7 @@ WHO: none
 OTHER: Random(0, 1000) < dance && Player:arousal > 25 && Player:intoxication > 15
 
     SceneStart()
+    
         "I do consider myself a good dancer. The DJ is playing my favorite song, should I try and show off some moves?"
         0:: "Yes"
         1:: "No"
@@ -13,6 +14,7 @@ OTHER: Random(0, 1000) < dance && Player:arousal > 25 && Player:intoxication > 1
             "Why not? I'm proud of my dancing ability and it's time to shine!"
             Player.strip()
             Player.animate(dance)
+            arousal -= 5
         
             If Random(0, 100) < dance
 
