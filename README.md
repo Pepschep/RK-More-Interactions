@@ -3,7 +3,7 @@
 <p>https://github.com/vinfamy/LifePlay</p>
 <br>
 <h3>rk_MoreInteractions :</h3>
-<p>Version: 1.0.8</p>
+<p>Version: 1.0.9</p>
 <br>
 <p>Add options to do silly things around the city.</p> 
 <p>Groping, offer from stranger, kiss companion,...</p> 

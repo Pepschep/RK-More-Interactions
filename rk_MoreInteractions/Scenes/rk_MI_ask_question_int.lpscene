@@ -1123,7 +1123,9 @@ OTHER: none
                     Actor(Happy)::"Sure, I like animals, why?"
                     Player(Flirty)::"I mean doing sex with animals?"
                     If Actor.isInterestedIn(Player) && Actor:arousal > 15 && Actor:perversion > 15
-                        Actor(Happy)::"Yeah, do you have a dog"
+                        Actor(Happy)::"Yeah, a lot!"
+                        Actor:rapportwithplayer += random(0, 5)
+                        Actor:attractiontoplayer += random(0, 5)
                     Elseif Actor.isInterestedIn(Player)
                         Actor:(Happy):"No, I wish it's not your type either ..."
                         Actor:attractiontoplayer -= random(0, 1)
